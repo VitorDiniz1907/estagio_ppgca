@@ -1,0 +1,31 @@
+:root {
+  --papel: #f4f6fb;
+  --superficie: #ffffff;
+  --tinta: #182536;
+  --tinta-suave: #52627a;
+  --linha: #b9c6d4;
+  --destaque: #2456a6;
+  --feito: #1f7a5c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: 'Public Sans', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}

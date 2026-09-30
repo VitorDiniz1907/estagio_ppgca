@@ -1,0 +1,33 @@
+:host { display: block; margin-top: 1.25rem; }
+
+svg { display: block; width: 100%; max-width: 720px; height: auto; }
+
+.fronteira { fill: var(--superficie); stroke: var(--linha); stroke-width: 1.5; }
+.sistema { font: 600 13px 'Public Sans', system-ui, sans-serif; fill: var(--tinta-suave); }
+
+.caso {
+  fill: hsl(var(--matiz, 160) 70% 94%);
+  stroke: hsl(var(--matiz, 160) 50% 35%);
+  stroke-width: 1.5;
+}
+.rotulo-caso { font: 500 14px 'Public Sans', system-ui, sans-serif; fill: var(--tinta); }
+
+.assoc { stroke: var(--tinta); stroke-width: 1.4; }
+.rel { stroke: var(--tinta-suave); stroke-width: 1.4; stroke-dasharray: 5 4; }
+.seta { fill: none; stroke: var(--tinta-suave); stroke-width: 1.5; }
+.rotulo-rel { font: italic 11px 'Public Sans', system-ui, sans-serif; fill: var(--tinta-suave); }
+
+.ator {
+  circle { fill: var(--superficie); stroke: var(--tinta); stroke-width: 2; }
+  line { stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; }
+}
+.rotulo-ator { font: 500 13px 'Public Sans', system-ui, sans-serif; fill: var(--tinta); }
+
+.fronteira { fill: var(--superficie, #fff); stroke: var(--linha, #b9c6d4); stroke-width: 1.5; }
+.assoc { stroke: var(--tinta, #182536); stroke-width: 1.4; }
+.rel { stroke: var(--tinta-suave, #52627a); stroke-width: 1.4; stroke-dasharray: 5 4; }
+.seta { fill: none; stroke: var(--tinta-suave, #52627a); stroke-width: 1.5; }
+.ator {
+  circle { fill: var(--superficie, #fff); stroke: var(--tinta, #182536); stroke-width: 2; }
+  line { stroke: var(--tinta, #182536); stroke-width: 2; stroke-linecap: round; }
+}

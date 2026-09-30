@@ -1,0 +1,12 @@
+<div class="sistema">{{ dados().sistema }}</div>
+
+<ul class="grade">
+  @for (p of dados().perspectivas; track p.tipo) {
+    <li [attr.data-tipo]="p.tipo">
+      <span class="marca" aria-hidden="true"></span>
+      <h4>{{ rotulos[p.tipo] }}</h4>
+      <p class="pergunta">{{ p.pergunta }}</p>
+      <p class="diagrama">{{ p.diagrama }}</p>
+    </li>
+  }
+</ul>

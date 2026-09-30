@@ -1,0 +1,51 @@
+@let l = layout();
+
+<svg [attr.viewBox]="'0 0 ' + largura + ' ' + l.altura" role="img"
+     [attr.aria-label]="'Diagrama de sequência: ' + dados().titulo">
+  <defs>
+    <marker id="seq-cheia" viewBox="0 0 10 10" refX="10" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto">
+      <path class="ponta-cheia" d="M0 0 L10 5 L0 10 z" />
+    </marker>
+    <marker id="seq-aberta" viewBox="0 0 10 10" refX="10" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto">
+      <path class="ponta-aberta" d="M0 0 L10 5 L0 10" />
+    </marker>
+  </defs>
+
+  @for (p of l.participantes; track p.id) {
+    <line class="vida" [attr.x1]="p.x" [attr.y1]="caixaA + 10"
+          [attr.x2]="p.x" [attr.y2]="l.altura - 6" />
+  }
+
+  @for (f of l.fragmentos; track $index) {
+    <rect class="frame" x="30" [attr.y]="f.topo" [attr.width]="largura - 60"
+          [attr.height]="f.fim - f.topo" rx="4" />
+    <rect class="tag" x="30" [attr.y]="f.topo" width="44" height="20" rx="4" />
+    <text class="tag-txt" x="52" [attr.y]="f.topo + 14" text-anchor="middle">alt</text>
+    <text class="condicao" x="84" [attr.y]="f.topo + 15">[{{ f.condicao }}]</text>
+    @for (dv of f.divisores; track $index) {
+      <line class="divisor" x1="30" [attr.x2]="largura - 30" [attr.y1]="dv.y" [attr.y2]="dv.y" />
+      <text class="condicao" x="42" [attr.y]="dv.y + 16">[{{ dv.condicao }}]</text>
+    }
+  }
+
+  @for (m of l.mensagens; track $index) {
+    @if (m.auto) {
+      <path class="msg" [class.retorno]="m.retorno" fill="none"
+            [attr.d]="m.caminho" marker-end="url(#seq-cheia)" />
+      <text class="rotulo" [attr.x]="m.tx" [attr.y]="m.y + 4">{{ m.texto }}</text>
+    } @else {
+      <line class="msg" [class.retorno]="m.retorno"
+            [attr.x1]="m.x1" [attr.y1]="m.y" [attr.x2]="m.x2" [attr.y2]="m.y"
+            [attr.marker-end]="m.retorno ? 'url(#seq-aberta)' : 'url(#seq-cheia)'" />
+      <text class="rotulo" [attr.x]="m.tx" [attr.y]="m.y - 7" text-anchor="middle">{{ m.texto }}</text>
+    }
+  }
+
+  @for (p of l.participantes; track p.id) {
+    <rect [class]="'caixa ' + (p.tipo === 'ator' ? 'ator' : 'objeto')"
+          [attr.x]="p.x - caixaL / 2" y="10" [attr.width]="caixaL" [attr.height]="caixaA" rx="8" />
+    <text class="nome" [attr.x]="p.x" y="28" dy="0.35em" text-anchor="middle">{{ p.nome }}</text>
+  }
+</svg>

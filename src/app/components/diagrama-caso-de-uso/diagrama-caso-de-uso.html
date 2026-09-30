@@ -1,0 +1,40 @@
+@let l = layout();
+
+<svg [attr.viewBox]="'0 0 ' + largura + ' ' + l.altura" role="img"
+     [attr.aria-label]="'Diagrama de casos de uso: ' + dados().sistema">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto">
+      <path class="seta" d="M0 0 L10 5 L0 10" />
+    </marker>
+  </defs>
+
+  <rect class="fronteira" x="190" y="10" width="340" [attr.height]="l.altura - 20" rx="10" />
+  <text class="sistema" x="360" y="34" text-anchor="middle">{{ dados().sistema }}</text>
+
+  @for (a of l.associacoes; track $index) {
+    <line class="assoc" [attr.x1]="a.x1" [attr.y1]="a.y1" [attr.x2]="a.x2" [attr.y2]="a.y2" />
+  }
+
+  @for (r of l.relacoes; track $index) {
+    <line class="rel" marker-end="url(#seta)"
+          [attr.x1]="r.x1" [attr.y1]="r.y1" [attr.x2]="r.x2" [attr.y2]="r.y2" />
+    <text class="rotulo-rel" [attr.x]="r.lx" [attr.y]="r.ly">{{ r.rotulo }}</text>
+  }
+
+  @for (c of l.casos; track c.id) {
+    <ellipse class="caso" [attr.cx]="c.x" [attr.cy]="c.y" [attr.rx]="rx" [attr.ry]="ry" />
+    <text class="rotulo-caso" [attr.x]="c.x" [attr.y]="c.y" dy="0.35em" text-anchor="middle">{{ c.nome }}</text>
+  }
+
+  @for (a of l.atores; track a.id) {
+    <g class="ator">
+      <circle [attr.cx]="a.x" [attr.cy]="a.y - 28" r="9" />
+      <line [attr.x1]="a.x" [attr.y1]="a.y - 19" [attr.x2]="a.x" [attr.y2]="a.y + 10" />
+      <line [attr.x1]="a.x - 16" [attr.y1]="a.y - 8" [attr.x2]="a.x + 16" [attr.y2]="a.y - 8" />
+      <line [attr.x1]="a.x" [attr.y1]="a.y + 10" [attr.x2]="a.x - 13" [attr.y2]="a.y + 30" />
+      <line [attr.x1]="a.x" [attr.y1]="a.y + 10" [attr.x2]="a.x + 13" [attr.y2]="a.y + 30" />
+      <text class="rotulo-ator" [attr.x]="a.x" [attr.y]="a.y + 50" text-anchor="middle">{{ a.nome }}</text>
+    </g>
+  }
+</svg>

@@ -1,0 +1,40 @@
+@for (aula of svc.aulas; track aula.id) {
+  <section class="aula">
+    <span class="chip">Aula {{ aula.id }}</span>
+    <h2>{{ aula.titulo }}</h2>
+
+    <div class="lista">
+      @for (t of aula.topicos; track t.slug) {
+        <article class="cartao">
+          <header class="cartao-topo">
+            <span class="chip">{{ rotulos[t.tipo] }}</span>
+            <h3>{{ t.titulo }}</h3>
+          </header>
+
+          <div class="corpo">
+            @if (t.objetivo) {
+              <p class="objetivo">{{ t.objetivo }}</p>
+            }
+            @if (t.conceitos?.length) {
+              <ul class="conceitos">
+                @for (c of t.conceitos; track c) { <li>{{ c }}</li> }
+              </ul>
+            }
+            @if (t.diagramaPerspectivas) {
+              <app-perspectivas-modelo [dados]="t.diagramaPerspectivas" />
+            }
+            @if (t.diagramaContexto) {
+              <app-diagrama-contexto [dados]="t.diagramaContexto" />
+            }
+            @if (t.diagramaCasoDeUso) {
+              <app-diagrama-caso-de-uso [dados]="t.diagramaCasoDeUso" />
+            }
+            @if (t.diagramaSequencia) {
+              <app-diagrama-sequencia [dados]="t.diagramaSequencia" />
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+}

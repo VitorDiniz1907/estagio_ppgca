@@ -1,0 +1,34 @@
+:host { display: block; margin-top: 1.25rem; }
+
+svg { display: block; width: 100%; max-width: 760px; height: auto; }
+
+.sistema {
+  fill: hsl(var(--matiz, 160) 70% 94%);
+  stroke: hsl(var(--matiz, 160) 50% 35%);
+  stroke-width: 2;
+}
+.nome-sistema {
+  font: 700 15px 'Public Sans', system-ui, sans-serif;
+  fill: var(--tinta, #182536);
+  text-anchor: middle;
+}
+
+.vizinho { fill: var(--superficie, #fff); stroke: var(--tinta, #182536); stroke-width: 1.5; }
+.vizinho.fora { stroke: var(--tinta-suave, #52627a); stroke-dasharray: 6 4; }
+.nome {
+  font: 600 13px 'Public Sans', system-ui, sans-serif;
+  fill: var(--tinta, #182536);
+  text-anchor: middle;
+}
+.nota { font: italic 11px 'Public Sans', system-ui, sans-serif; fill: var(--tinta-suave, #52627a); }
+
+.fluxo { stroke: var(--tinta, #182536); stroke-width: 1.5; }
+.ponta { fill: var(--tinta, #182536); }
+.rotulo {
+  font: 500 12px 'Public Sans', system-ui, sans-serif;
+  fill: var(--tinta, #182536);
+  paint-order: stroke;
+  stroke: var(--superficie, #fff);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}

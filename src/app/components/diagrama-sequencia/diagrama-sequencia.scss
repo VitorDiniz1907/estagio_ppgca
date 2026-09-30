@@ -1,0 +1,33 @@
+:host { display: block; margin-top: 1.25rem; }
+
+svg { display: block; width: 100%; max-width: 720px; height: auto; }
+
+.caixa { stroke-width: 1.5; }
+.caixa.objeto { fill: var(--superficie, #fff); stroke: var(--tinta, #182536); }
+.caixa.ator {
+  fill: hsl(var(--matiz, 160) 70% 94%);
+  stroke: hsl(var(--matiz, 160) 50% 35%);
+}
+.nome { font: 600 13px 'Public Sans', system-ui, sans-serif; fill: var(--tinta, #182536); }
+
+.vida { stroke: var(--linha, #b9c6d4); stroke-width: 1.5; stroke-dasharray: 6 5; }
+
+.msg { stroke: var(--tinta, #182536); stroke-width: 1.5; }
+.msg.retorno { stroke: var(--tinta-suave, #52627a); stroke-dasharray: 6 4; }
+.ponta-cheia { fill: var(--tinta, #182536); }
+.ponta-aberta { fill: none; stroke: var(--tinta-suave, #52627a); stroke-width: 1.5; }
+
+.rotulo {
+  font: 500 13px 'Public Sans', system-ui, sans-serif;
+  fill: var(--tinta, #182536);
+  paint-order: stroke;
+  stroke: var(--superficie, #fff);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.frame { fill: none; stroke: var(--tinta-suave, #52627a); stroke-width: 1.4; }
+.divisor { stroke: var(--tinta-suave, #52627a); stroke-width: 1.4; stroke-dasharray: 6 4; }
+.tag { fill: hsl(var(--matiz, 160) 70% 92%); stroke: var(--tinta-suave, #52627a); stroke-width: 1.4; }
+.tag-txt { font: 600 12px 'Public Sans', system-ui, sans-serif; fill: var(--tinta, #182536); }
+.condicao { font: italic 12px 'Public Sans', system-ui, sans-serif; fill: var(--tinta-suave, #52627a); }

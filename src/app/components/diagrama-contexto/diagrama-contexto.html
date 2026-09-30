@@ -1,0 +1,40 @@
+@let l = layout();
+
+<svg [attr.viewBox]="'0 0 ' + largura + ' ' + l.altura" role="img"
+     [attr.aria-label]="'Diagrama de contexto: ' + dados().sistema">
+  <defs>
+    <marker id="ctx-seta" viewBox="0 0 10 10" refX="10" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto">
+      <path class="ponta" d="M0 0 L10 5 L0 10 z" />
+    </marker>
+  </defs>
+
+  <rect class="sistema" [attr.x]="sisX" y="16" [attr.width]="sisL"
+        [attr.height]="l.altura - 32" rx="12" />
+  <text class="nome-sistema" [attr.x]="sisX + sisL / 2" [attr.y]="l.altura / 2">
+    @for (ln of l.linhas; track $index) {
+      <tspan [attr.x]="sisX + sisL / 2"
+             [attr.dy]="$index === 0 ? (0.35 - 0.65 * (l.linhas.length - 1)) + 'em' : '1.3em'">{{ ln }}</tspan>
+    }
+  </text>
+
+  @for (v of l.vizinhos; track v.id) {
+    @for (s of v.setas; track $index) {
+      <line class="fluxo" marker-end="url(#ctx-seta)"
+            [attr.x1]="s.x1" [attr.y1]="s.y" [attr.x2]="s.x2" [attr.y2]="s.y" />
+      <text class="rotulo" [attr.x]="s.tx" [attr.y]="s.y - 7" text-anchor="middle">{{ s.texto }}</text>
+    }
+
+    <rect [class]="'vizinho' + (v.fora ? ' fora' : '')"
+          [attr.x]="v.x" [attr.y]="v.topo" [attr.width]="caixaL" [attr.height]="v.h" rx="8" />
+    <text class="nome" [attr.x]="v.cx" [attr.y]="v.cy">
+      @for (ln of v.linhas; track $index) {
+        <tspan [attr.x]="v.cx"
+               [attr.dy]="$index === 0 ? (0.35 - 0.65 * (v.linhas.length - 1)) + 'em' : '1.3em'">{{ ln }}</tspan>
+      }
+    </text>
+    @if (v.fora) {
+      <text class="nota" [attr.x]="v.cx" [attr.y]="v.topo + v.h + 15" text-anchor="middle">fora do escopo</text>
+    }
+  }
+</svg>
