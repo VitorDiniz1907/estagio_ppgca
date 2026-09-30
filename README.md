@@ -21,7 +21,7 @@ O conteúdo teórico tem como referência o **Capítulo 5 – Modelagem de Siste
 
 ## Resumo do que foi feito
 
-- **Tela inicial em formato de roteiro**: cada tópico da aula é um cartão, exibido um por linha, já com o conteúdo visível (objetivo, conceitos e, quando existe, um diagrama). Não é preciso clicar em cada tópico para apresentar.
+- **Tela inicial em formato de roteiro**: cada tópico da aula é um cartão, exibido um por linha, já com o conteúdo visível (objetivo, conceitos e, quando existe, um diagrama).
 - **Capa da disciplina** gerada por código, com gradiente, selo com a sigla e nome do curso. A paleta inteira deriva de um único parâmetro de cor (`matiz`), então trocar a cor da disciplina é mudar um número.
 - **Conteúdo separado do código**: aulas, tópicos, textos e diagramas ficam em arquivos de dados (`aulas.data.ts` e `disciplinas.data.ts`). Editar a aula não exige mexer nos componentes.
 - **Diagramas gerados a partir de dados**, em SVG, sem bibliotecas externas:
@@ -29,7 +29,6 @@ O conteúdo teórico tem como referência o **Capítulo 5 – Modelagem de Siste
   - diagrama de casos de uso;
   - diagrama de sequência (com mensagens de retorno, autochamada e fragmento `alt`);
   - quadro "um sistema, quatro perspectivas".
-- **Identidade visual própria**: o formato do marcador indica o tipo de modelo, como nos diagramas UML (círculo para contexto, losango para interação, quadrado para estrutura e forma arredondada para comportamento).
 - **Acessibilidade básica**: foco visível para teclado, rótulos descritivos nos diagramas (`role="img"` e `aria-label`) e respeito a `prefers-reduced-motion`.
 
 ## Conteúdo das aulas
@@ -116,8 +115,6 @@ aulas/
 
 Cada componente possui, como padrão do Angular CLI, quatro arquivos: `.ts` (lógica), `.html` (template), `.scss` (estilos) e `.spec.ts` (testes).
 
-> **Convenção de nomes:** a partir do Angular 20, o CLI não adiciona os sufixos `.component` e `.service`. Por isso os arquivos se chamam `roteiro.ts` e `aulas.ts`, e as classes se chamam `Roteiro` e `Aulas`.
-
 ## Como o projeto funciona
 
 1. `disciplinas.data.ts` descreve a disciplina; `aulas.data.ts` descreve as aulas e seus tópicos.
@@ -131,7 +128,7 @@ Cada componente possui, como padrão do Angular CLI, quatro arquivos: `.ts` (ló
 As variáveis ficam em `src/styles.scss`, no bloco `:root`: `--papel`, `--superficie`, `--tinta`, `--tinta-suave`, `--linha`, `--destaque` e `--feito`. A cor da disciplina vem da variável `--matiz`, definida pela capa a partir do campo `matiz` da disciplina.
 
 Tipografia: **Bricolage Grotesque** (títulos) e **Public Sans** (texto corrido).
-
+<!--
 ## Como editar o conteúdo
 
 ### Alterar o número ou o título de uma aula
@@ -185,7 +182,7 @@ Em `src/app/core/disciplinas.data.ts`, altere `nome`, `curso`, `periodo` e `mati
 - **Conteúdo fora dos componentes**: separar dados de interface facilita revisar o material com o orientador sem risco de quebrar a tela.
 - **Direitos autorais**: o livro é citado como referência (capítulo e seção), mas textos e figuras são originais deste projeto.
 
-
+-->
 ## Referência
 
 SOMMERVILLE, Ian. *Engenharia de Software*. Capítulo 5: Modelagem de Sistemas. Confira a edição utilizada para a numeração das seções.
