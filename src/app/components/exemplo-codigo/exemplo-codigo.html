@@ -1,0 +1,13 @@
+<p class="descricao">
+  <a [href]="dados().url" target="_blank" rel="noopener noreferrer">{{ dados().descricao }}</a>
+</p>
+
+<div class="caixa">
+  <div class="barra">
+    <span>PlantUML</span>
+    <button type="button" aria-live="polite" (click)="copiar()">
+      {{ copiado() ? 'Copiado!' : 'Copiar código' }}
+    </button>
+  </div>
+  <pre tabindex="0"><code>{{ dados().codigo }}</code></pre>
+</div>

@@ -13,6 +13,8 @@ export interface ItemRoteiro {
   diagramaSequencia?: DadosSequencia;
   diagramaContexto?: DadosContexto;
   diagramaPerspectivas?: DadosPerspectivas;
+  exemploCodigo?: DadosExemploCodigo;
+
 }
 
 export interface Aula {
@@ -62,4 +64,10 @@ export interface DadosContexto {
 export interface DadosPerspectivas {
   sistema: string;
   perspectivas: { tipo: TipoModelo; pergunta: string; diagrama: string }[];
+}
+
+export interface DadosExemploCodigo {
+  descricao: string; // texto do link
+  url: string;
+  codigo: string;
 }

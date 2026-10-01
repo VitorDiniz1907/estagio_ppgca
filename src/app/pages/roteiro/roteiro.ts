@@ -5,13 +5,14 @@ import { TipoModelo } from '../../core/aulas.model';
 import { DiagramaSequencia } from '../../components/diagrama-sequencia/diagrama-sequencia';
 import { DiagramaContexto } from '../../components/diagrama-contexto/diagrama-contexto';
 import { PerspectivasModelo } from '../../components/perspectivas-modelo/perspectivas-modelo';
+import { ExemploCodigo } from '../../components/exemplo-codigo/exemplo-codigo';
 
 
 @Component({
   selector: 'app-roteiro',
   templateUrl: './roteiro.html',
   styleUrl: './roteiro.scss',
-  imports: [DiagramaCasoDeUso, DiagramaSequencia, DiagramaContexto, PerspectivasModelo],
+  imports: [DiagramaCasoDeUso, DiagramaSequencia, DiagramaContexto, PerspectivasModelo, ExemploCodigo],
 })
 export class Roteiro {
   svc = inject(Aulas);

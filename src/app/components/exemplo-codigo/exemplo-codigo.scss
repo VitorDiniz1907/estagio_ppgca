@@ -1,0 +1,41 @@
+:host { display: block; margin-top: 1.25rem; }
+
+.descricao { margin: 0 0 0.6rem; font-weight: 500; }
+a { color: var(--destaque, #2456a6); }
+
+.caixa {
+  border: 1px solid var(--linha, #b9c6d4);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--papel, #f4f6fb);
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.75rem;
+  background: var(--superficie, #fff);
+  border-bottom: 1px solid var(--linha, #b9c6d4);
+  font-size: 0.8rem;
+  color: var(--tinta-suave, #52627a);
+
+  button {
+    font: inherit;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--linha, #b9c6d4);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--tinta, #182536);
+    cursor: pointer;
+  }
+}
+
+pre {
+  margin: 0;
+  padding: 1rem;
+  max-height: 26rem;
+  overflow: auto;
+  font: 0.82rem/1.6 ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  color: var(--tinta, #182536);
+}

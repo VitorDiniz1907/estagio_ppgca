@@ -1,4 +1,5 @@
 import { Aula } from './aulas.model';
+import { SEQUENCIA_BIBLIOTECA } from './plantuml.exemplos';
 
 export const AULAS: Aula[] = [
   {
@@ -90,7 +91,7 @@ export const AULAS: Aula[] = [
         conceitos: [
           'Ator é quem interage com o sistema: uma pessoa ou outro sistema.',
           'Cada caso de uso é uma tarefa com valor para o ator, como emprestar um livro ou reservar um exemplar.',
-          'O diagrama dá a visão geral, e um texto curto detalha cada caso: quem inicia, o que acontece e o que pode dar errado.',
+          'O diagrama dá a visão geral.',
         ],
         aplicacao:
           'Atores: aluno, bibliotecário e sistema acadêmico. Casos de uso: consultar acervo, emprestar, devolver, reservar e cobrar multa.',
@@ -167,6 +168,11 @@ export const AULAS: Aula[] = [
             ],
           },
         ],
+      },
+      exemploCodigo: {
+      descricao: 'Exemplo de Diagrama de sequência gerado por código',
+      url: 'https://plantuml.com/',
+      codigo: SEQUENCIA_BIBLIOTECA,
       },
       
       },

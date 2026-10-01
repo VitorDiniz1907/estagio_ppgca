@@ -32,6 +32,9 @@
             @if (t.diagramaSequencia) {
               <app-diagrama-sequencia [dados]="t.diagramaSequencia" />
             }
+            @if (t.exemploCodigo) {
+              <app-exemplo-codigo [dados]="t.exemploCodigo" />
+            }
           </div>
         </article>
       }
