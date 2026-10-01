@@ -14,6 +14,7 @@ export interface ItemRoteiro {
   diagramaContexto?: DadosContexto;
   diagramaPerspectivas?: DadosPerspectivas;
   exemploCodigo?: DadosExemploCodigo;
+  download?: DadosDownload;
 
 }
 
@@ -70,4 +71,10 @@ export interface DadosExemploCodigo {
   descricao: string; // texto do link
   url: string;
   codigo: string;
+}
+
+export interface DadosDownload {
+  titulo: string;
+  url: string;
+  nomeArquivo?: string; // nome sugerido ao salvar
 }

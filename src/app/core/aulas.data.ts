@@ -119,6 +119,11 @@ export const AULAS: Aula[] = [
         ],
         relacoes: [{ de: 'multa', para: 'devolver', tipo: 'extend' }],
         },
+        download: {
+          titulo: 'Diagrama de Caso de Uso exemplo',
+          url: 'arquivos/diagrama-caso-de-uso-exemplo.xmi',
+          nomeArquivo: 'diagrama-caso-de-uso-exemplo.xmi',
+        },
       },
       {
         slug: 'diagramas-de-sequencia',
